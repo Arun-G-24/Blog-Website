@@ -8,21 +8,21 @@ const DevTools = () => {
     };
     document.addEventListener('contextmenu', handleContextMenu);
 
-    const handleKeyDown = (e) => {
-      if (
+    // const handleKeyDown = (e) => {
+    //   if (
        
-        (e.ctrlKey && e.shiftKey) || 
-        (e.ctrlKey && e.shiftKey ) || 
-        (e.ctrlKey && e.keyCode) 
-      ) {
-        e.preventDefault();
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
+    //     (e.ctrlKey && e.shiftKey) || 
+    //     (e.ctrlKey && e.shiftKey ) || 
+    //     (e.ctrlKey && e.keyCode) 
+    //   ) {
+    //     e.preventDefault();
+    //   }
+    // };
+    // document.addEventListener('keydown', handleKeyDown);
 
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
+      // document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 };
