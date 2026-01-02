@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../src/assets/image.png'
+import image from '../src/assets/end.png'
 import { Link } from 'react-router-dom'
 function Thankyou() {
   return (
