@@ -6,10 +6,11 @@ import Navbar from "../compontents/NavBar";
 import Error from "../compontents/Error";
 import About from "../compontents/About";
 import Thankyou from "../compontents/Thankyou";
+import DevTools from "../DevTools";
 
 function App() {
   const [search, setSearch] = useState("apple");
-
+   DevTools()
   return (
     <>
       <Navbar search={search} setSearch={setSearch} />
