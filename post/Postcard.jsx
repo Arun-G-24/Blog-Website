@@ -12,8 +12,7 @@ function PostDetails({ search }) {
   useEffect(() => {
    axios.get(`/.netlify/functions/getNews?q=${search}`)
      
-      ,
-      })
+  
       .then((res) => {
         setPost(res.data.articles[Number(id)]);
       })
