@@ -6,9 +6,32 @@ import Like from "../compontents/Like";
 
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
+console.log(API_KEY)
+
 function Home({ search }) {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+    useEffect(() => {
+    console.log('fskdfjdksa')
+    if (!search) return ;
+
+    setLoading(true);
+
+    axios.get("https://newsapi.org/v2/everything", {
+       params: {
+    q: "apple",
+    sortBy: "publishedAt",
+    apiKey: API_KEY,
+  },
+    })
+    .then((res) => {
+      setNews(res.data.articles);
+     setLoading(false);
+    })
+    .catch(() => setLoading(false));
+    
+  }, [search]);
+  
 
   // if (loading) return <p className="p-4 mt-24">Loading...</p>;
   if (loading) {
@@ -29,27 +52,6 @@ function Home({ search }) {
 }
 
 
-  useEffect(() => {
-    if (!search) return ;
-
-    setLoading(true);
-
-    axios.get("https://newsapi.org/v2/everything", {
-      params: {
-        q: search,
-       sortBy: "popularity",
-        apiKey: API_KEY,
-      },
-    })
-    .then((res) => {
-      setNews(res.data.articles);
-     setLoading(false);
-    })
-    .catch(() => setLoading(false));
-
-  }, [search]);
-
-  
 
   
   return (

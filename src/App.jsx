@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Home from "./Home";
-import Postcard from "../post/Postcard";
+import Postcard from "../post/Postcard"
 import Navbar from "../compontents/NavBar";
-import Error from "../compontents/Error";
+import Error from "../compontents/Error"
 import About from "../compontents/About";
 import Thankyou from "../compontents/Thankyou";
 import DevTools from "../DevTools";
