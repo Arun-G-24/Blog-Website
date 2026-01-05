@@ -10,13 +10,9 @@ function PostDetails({ search }) {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("https://newsapi.org/v2/everything", {
-         params: {
-    q: "apple",
-    sortBy: "publishedAt",
-    apiKey: "22592cecfd894889ab9551381802071b",
-  },
+   axios.get(`/.netlify/functions/getNews?q=${search}`)
+     
+      ,
       })
       .then((res) => {
         setPost(res.data.articles[Number(id)]);

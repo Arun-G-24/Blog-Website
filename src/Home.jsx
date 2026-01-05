@@ -17,13 +17,7 @@ function Home({ search }) {
 
     setLoading(true);
 
-    axios.get("https://newsapi.org/v2/everything", {
-       params: {
-    q: "apple",
-    sortBy: "publishedAt",
-    apiKey: API_KEY,
-  },
-    })
+    axios.get(`/.netlify/functions/getNews?q=${search}`)
     .then((res) => {
       setNews(res.data.articles);
      setLoading(false);
