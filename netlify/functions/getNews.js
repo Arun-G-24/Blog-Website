@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function handler(event, context) {
-  const query = event.queryStringParameters.q || "apple"; 
+  const query = event.queryStringParameters?.q || "apple";
 
   try {
     const response = await axios.get("https://newsapi.org/v2/everything", {
@@ -14,12 +14,10 @@ export async function handler(event, context) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify(response.data),
+      body: JSON.stringify({ articles: response.data?.articles || [] }),
     };
-  } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Failed to fetch news" }),
-    };
+  } catch (err) {
+    console.error("NewsAPI error:", err.message);
+    return { statusCode: 500, body: JSON.stringify({ articles: [] }) };
   }
 }
