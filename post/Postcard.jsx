@@ -39,14 +39,7 @@ function PostDetails() {
     );
   }
 
-  if (!post) {
-    return (
-      <p className="max-w-3xl mx-auto p-4 mt-24 text-center text-gray-500">
-        No post found.
-      </p>
-    );
-  }
-
+ 
   return (
     <div className="max-w-3xl mx-auto p-4 border relative top-20">
       <h1 className="text-2xl font-semibold">{post?.title}</h1>
